@@ -29,14 +29,14 @@ void quit(void)
     svcSleepThread(3000000000);
     romfsExit();
     drawExit();
-	exit(0);
+    exit(0);
 }
 
 // Main function
 int main(int argc, char **argv)
 {
     // Initialize graphics.
-	gfxInitDefault();
+    gfxInitDefault();
     drawInit();
     fontEnsureMapped();
 
@@ -65,16 +65,16 @@ int main(int argc, char **argv)
     // Set bottom screen to working
     bottomScene(1);
     // Start NFC
-	startScanning();
+    startScanning();
 
 
-	// Read Data Loop
+    // Read Data Loop
     // Check amiibo
-	while (!checkAmiibo(1)) {}
+    while (!checkAmiibo(1)) {}
 
     svcSleepThread(3000000000);
     // Prompt for Destination amiibo
-	topScene(2);
+    topScene(2);
     // Set bottom screen to waiting
     bottomScene(0);
     // Stop NFC & wait for input
@@ -82,15 +82,15 @@ int main(int argc, char **argv)
 
 
     // Show warning not to remove
-	topScene(3);
+    topScene(3);
     // Set bottom screen to working
     bottomScene(1);
     // Start NFC
-	startScanning();
+    startScanning();
 
 
 
-	// Write Data Loop
+    // Write Data Loop
     // Set write flag for AppData Initialization
     write = true;
 
@@ -98,19 +98,19 @@ int main(int argc, char **argv)
     while (!checkAmiibo(3)) {}
 
     // Program done & scanning stopped
-	nfcStopScanning();
+    nfcStopScanning();
 
     svcSleepThread(3000000000);
     // Show finish screen
-	topScene(4);
+    topScene(4);
 
     // Wait for exit key
-	while (aptMainLoop())
-	{
-		hidScanInput(); //Scan all the inputs.
-		u32 kUp = hidKeysUp(); //Get released buttons
-		if (kUp & KEY_START)
+    while (aptMainLoop())
+    {
+        hidScanInput(); //Scan all the inputs.
+        u32 kUp = hidKeysUp(); //Get released buttons
+        if (kUp & KEY_START)
             quit(); // break in order to return to hbmenu
-	}
+    }
     return 0;
 }

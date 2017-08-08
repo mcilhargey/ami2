@@ -14,11 +14,11 @@ void topScene(int stage)
     setTextColor(0xFFFFFFFF); // white
 
     if (stage == 0) {
-    	char* string =
-    		"Place source amiibo and press " FONT_A "\n"
+        char* string =
+            "Place source amiibo and press " FONT_A "\n"
             "          Press START to exit";
 
-    	renderText(100.0f, 118.0f, 0.5f, 0.5f, false, string, 0);
+        renderText(100.0f, 118.0f, 0.5f, 0.5f, false, string, 0);
     } else
 
     if (stage == 1) {
@@ -30,7 +30,7 @@ void topScene(int stage)
 
     if (stage == 2) {
         char* string =
-    		"Place destination amiibo and press " FONT_A "\n"
+            "Place destination amiibo and press " FONT_A "\n"
             "             Press START to exit";
 
         renderText(90.0f, 118.0f, 0.5f, 0.5f, false, string, 0);
