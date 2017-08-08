@@ -1,0 +1,4 @@
+__MACOSX/
+output/
+build/
+.DS_Store
